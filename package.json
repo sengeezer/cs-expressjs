@@ -1,0 +1,22 @@
+{
+  "name": "cs-express",
+  "version": "0.0.1",
+  "description": "Codeschool express JS app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "codeschool",
+    "code",
+    "school",
+    "node",
+    "express",
+    "js"
+  ],
+  "author": "FMA",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
