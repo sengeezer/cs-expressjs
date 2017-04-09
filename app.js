@@ -1,6 +1,9 @@
 var express = require('express'),
     app = express();
 
+var bodyParser = require('body-parser');
+var parseUrlencoded = bodyParser.urlencoded({ extended: false });
+
 var logger = require('./logger');
 
 app.use(logger);
@@ -40,6 +43,13 @@ app.get('/blocks/:name', function(req, res){
   } else {
     res.json(description);
   }
+});
+
+app.post('/blocks', parseUrlencoded, function(req, res) {
+  var newBlock = req.body;
+  blocks[newBlock.name] = newBlock.description;
+
+  res.status(201).json(newBlock.name);
 });
 
 app.get('/locations/:name', function(req, res){
