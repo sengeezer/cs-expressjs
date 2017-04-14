@@ -22,6 +22,9 @@ var locations = {
   'Rotating': 'Penthouse'
 };
 
+var blocks = require('./routes/blocks');
+app.use('/blocks', blocks);
+
 app.param('name', function(req, res, next) {
   var name = req.params.name;
   var block = name[0].toUpperCase() + name.slice(1).toLowerCase();
@@ -29,33 +32,6 @@ app.param('name', function(req, res, next) {
   req.blockName = block;
 
   next();
-});
-
-app.get('/blocks', function(req, res) {
-  res.json(Object.keys(blocks));
-});
-
-app.get('/blocks/:name', function(req, res){
-  var description = blocks[req.blockName];
-
-  if (!description) {
-    res.status(404).json('No description found for ' + req.params.name);
-  } else {
-    res.json(description);
-  }
-});
-
-app.post('/blocks', parseUrlencoded, function(req, res) {
-  var newBlock = req.body;
-  blocks[newBlock.name] = newBlock.description;
-
-  res.status(201).json(newBlock.name);
-});
-
-app.delete('/blocks/:name', function(req, res) {
-  delete blocks[req.blockName];
-
-  res.sendStatus(200); // OK
 });
 
 app.get('/locations/:name', function(req, res){
