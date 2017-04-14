@@ -52,6 +52,12 @@ app.post('/blocks', parseUrlencoded, function(req, res) {
   res.status(201).json(newBlock.name);
 });
 
+app.delete('/blocks/:name', function(req, res) {
+  delete blocks[req.blockName];
+
+  res.sendStatus(200); // OK
+});
+
 app.get('/locations/:name', function(req, res){
   var location = locations[req.blockName];
 
