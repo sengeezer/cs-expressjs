@@ -1,23 +1,22 @@
 {
   "name": "cs-express",
-  "version": "0.0.1",
-  "description": "Codeschool express JS app",
+  "version": "0.0.2",
+  "description": "Basic API app based on Codeschool.com Express course",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "codeschool",
-    "code",
-    "school",
     "node",
     "express",
-    "js"
+    "api"
   ],
   "author": "FMA",
   "license": "MIT",
+  "repository": "https://github.com/sengeezer/cs-expressjs",
   "dependencies": {
-    "body-parser": "1.17.1",
+    "body-parser": "1.17.2",
     "express": "^4.14.0"
   }
 }
